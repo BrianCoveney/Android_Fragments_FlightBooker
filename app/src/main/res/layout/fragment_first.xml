@@ -7,23 +7,26 @@
 
 
     <Spinner
-        android:name="flight_origin"
+        android:entries="@array/flight_origins"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+        android:id="@+id/origin_spinner"
         android:layout_gravity="center_horizontal"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/spinner2" />
+        android:prompt="@string/choose_origin"
+        android:spinnerMode="dialog"
+        android:layout_above="@+id/textView2"
+        android:layout_alignParentStart="true" />
 
     <Spinner
-        android:name="flight_destinations"
+        android:entries="@array/flight_destinations"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner2"
+        android:id="@+id/destination_spinner"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="62dp"
-        android:layout_below="@+id/spinner"
-        android:layout_toEndOf="@+id/textView" />
+        android:prompt="@string/choose_destination"
+        android:spinnerMode="dialog"
+        android:layout_above="@+id/find_flights_button"
+        android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -31,7 +34,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/from"
         android:id="@+id/textView"
-        android:layout_alignParentTop="true"
+        android:textSize="16dp"
+        android:layout_above="@+id/origin_spinner"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -40,7 +44,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="@string/to"
         android:id="@+id/textView2"
-        android:layout_alignTop="@+id/spinner2"
+        android:textSize="16dp"
+        android:layout_above="@+id/destination_spinner"
         android:layout_alignParentStart="true" />
 
     <Button
@@ -48,9 +53,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/quoteButton"
-        android:id="@+id/button"
-        android:layout_below="@+id/spinner2"
-        android:layout_alignParentStart="true" />
+        android:id="@+id/find_flights_button"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="84dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="arial"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:text="@string/header"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

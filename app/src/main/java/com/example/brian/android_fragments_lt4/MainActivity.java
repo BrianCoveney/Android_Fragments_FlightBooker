@@ -1,14 +1,29 @@
 package com.example.brian.android_fragments_lt4;
 
+import android.app.Activity;
+import android.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity implements FirstFragment.FlightSearcher {
+
+    @Override
+    public void searchForFlight(String origin, String destination)
+    {
+        FragmentManager mgr = getFragmentManager();
+        SecondFragment secondFragmentRef =
+                (SecondFragment)mgr.findFragmentById(R.id.second_fragment);
+
+        secondFragmentRef.displayFlightQuery(origin, destination);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +31,7 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         //Flight origins
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        Spinner spinner = (Spinner)findViewById(R.id.origin_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
               this, R.array.flight_origins, android.R.layout.simple_spinner_item);
@@ -26,13 +41,34 @@ public class MainActivity extends ActionBarActivity {
         spinner.setAdapter(adapter);
 
         //Flight destinations
-        Spinner spinner2 = (Spinner)findViewById(R.id.spinner2);
+        Spinner spinner2 = (Spinner)findViewById(R.id.destination_spinner);
         ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(
                 this, R.array.flight_destinations, android.R.layout.simple_spinner_item);
         adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner2.setAdapter(adapter2);
 
 
+
+        AdapterView.OnItemSelectedListener onSpinner =
+                new AdapterView.OnItemSelectedListener() {
+
+                    @Override
+                    public void onItemSelected(
+                            AdapterView<?> parent,
+                            View view,
+                            int position,
+                            long id) {
+                        TextView myTextView =
+                                (TextView)findViewById(R.id.textView);
+                        myTextView.setText(
+                                (String) parent.getItemAtPosition(position));
+                    }
+
+                    @Override
+                    public void onNothingSelected(
+                            AdapterView<?> parent) {
+                    }
+                };
 
     }
 

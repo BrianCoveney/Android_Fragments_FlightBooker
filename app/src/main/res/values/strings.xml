@@ -6,6 +6,9 @@
     <string name="quoteButton">Get Quote</string>
     <string name="from">From:</string>
     <string name="to">To:</string>
+    <string name="choose_origin">Choose Origin</string>
+    <string name="choose_destination">Choose Destination</string>
+    <string name="header">Flight Booker</string>
 
 
     <string-array name="flight_origins">
