@@ -3,7 +3,7 @@
 
     <string name="app_name">Android_Fragments_Lt4</string>
     <string name="action_settings">Settings</string>
-    <string name="quoteButton">Get Quote</string>
+    <string name="quoteButton">Find Flights</string>
     <string name="from">From:</string>
     <string name="to">To:</string>
     <string name="choose_origin">Choose Origin</string>

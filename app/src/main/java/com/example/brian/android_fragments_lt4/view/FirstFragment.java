@@ -1,4 +1,4 @@
-package com.example.brian.android_fragments_lt4;
+package com.example.brian.android_fragments_lt4.view;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -8,6 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Spinner;
+
+import com.example.brian.android_fragments_lt4.R;
+import com.example.brian.android_fragments_lt4.controller.FlightController;
 
 /**
  * Created by Brian on 08/01/2015.
@@ -19,7 +22,7 @@ public class FirstFragment extends Fragment {
     //The interface whice this fragment uses to communicate up to its Activity
     public interface FlightSearcher
     {
-        public void searchForFlight(String origin, String destination);
+        public void refreshFlightList();
     }
 
     @Override
@@ -43,24 +46,29 @@ public class FirstFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
     }
 
-    private void setUpListeners(){
-        Button findFlights = (Button)getActivity().findViewById(R.id.find_flights_button);
+    private void setUpListeners() {
+        Button findFlights = (Button) getActivity().findViewById(R.id.find_flights_button);
+
         findFlights.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
-                Spinner originSpinner = (Spinner)getActivity().findViewById(R.id.origin_spinner);
+            public void onClick(View v) {
+                Spinner originSpinner = (Spinner) getActivity().findViewById(R.id.origin_spinner);
                 String selectedOrigin = originSpinner.getSelectedItem().toString();
 
-                Spinner destinationSpinner = (Spinner)getActivity().findViewById(R.id.destination_spinner);
+                Spinner destinationSpinner = (Spinner) getActivity().findViewById(R.id.destination_spinner);
                 String selectedDestination = destinationSpinner.getSelectedItem().toString();
 
-                searcher.searchForFlight(selectedOrigin, selectedDestination);
+                //Calls out to the contoller to put the data into the model,
+                //then tells the bottom fragment to refresh itself from the update model
+                FlightController.getInstance().addFlight(selectedOrigin, selectedDestination);
 
+                searcher.refreshFlightList();
             }
-
         });
+
+
     }
+
 
 
 }

@@ -14,7 +14,7 @@
         android:layout_gravity="center_horizontal"
         android:prompt="@string/choose_origin"
         android:spinnerMode="dialog"
-        android:layout_above="@+id/textView2"
+        android:layout_below="@+id/textView"
         android:layout_alignParentStart="true" />
 
     <Spinner
@@ -25,7 +25,7 @@
         android:layout_gravity="center_horizontal"
         android:prompt="@string/choose_destination"
         android:spinnerMode="dialog"
-        android:layout_above="@+id/find_flights_button"
+        android:layout_below="@+id/textView2"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -35,8 +35,9 @@
         android:text="@string/from"
         android:id="@+id/textView"
         android:textSize="16dp"
-        android:layout_above="@+id/origin_spinner"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="47dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -45,8 +46,9 @@
         android:text="@string/to"
         android:id="@+id/textView2"
         android:textSize="16dp"
-        android:layout_above="@+id/destination_spinner"
-        android:layout_alignParentStart="true" />
+        android:layout_below="@+id/origin_spinner"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="70dp" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -55,18 +57,6 @@
         android:text="@string/quoteButton"
         android:id="@+id/find_flights_button"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="84dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="arial"
-        android:gravity="center"
-        android:textSize="30dp"
-        android:text="@string/header"
-        android:id="@+id/textView3"
-        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
 

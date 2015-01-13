@@ -8,17 +8,10 @@
     android:background="#ffc5d6ff">
 
 
-    <EditText
-        android:clickable="false"
-        android:cursorVisible="false"
-        android:focusable="false"
-        android:focusableInTouchMode="false"
-        android:layout_width="300dp"
+    <ListView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/quoteTextView"
-        android:layout_gravity="center_horizontal"
-        android:background="#ffe8e8e8"
+        android:id="@+id/listView"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
-
 </RelativeLayout>
