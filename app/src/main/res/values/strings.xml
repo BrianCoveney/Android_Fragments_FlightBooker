@@ -9,7 +9,7 @@
     <string name="choose_origin">Choose Origin</string>
     <string name="choose_destination">Choose Destination</string>
     <string name="header">Flight Booker</string>
-
+    <string name="sendEmail">SEND EMAIL</string>
 
     <string-array name="flight_origins">
         <item>Cork</item>
@@ -28,7 +28,10 @@
         <item>Cork</item>
     </string-array>
 
-
-
+    <string name="title_activity_sender">SenderActivity</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="intentEmail">brian.coveney@mycit.ie</string>
+    <string name="intentSubject">Flight Info</string>
+    <string name="intentDefaultMessage">Test from Android Intent</string>
 
 </resources>
