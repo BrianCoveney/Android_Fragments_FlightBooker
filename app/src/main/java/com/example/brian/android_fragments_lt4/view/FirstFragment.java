@@ -58,7 +58,7 @@ public class FirstFragment extends Fragment {
                 Spinner destinationSpinner = (Spinner) getActivity().findViewById(R.id.destination_spinner);
                 String selectedDestination = destinationSpinner.getSelectedItem().toString();
 
-                //Calls out to the contoller to put the data into the model,
+                //Calls out to the controller to put the data into the model,
                 //then tells the bottom fragment to refresh itself from the update model
                 FlightController.getInstance().addFlight(selectedOrigin, selectedDestination);
 

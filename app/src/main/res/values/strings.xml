@@ -32,6 +32,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="intentEmail">brian.coveney@mycit.ie</string>
     <string name="intentSubject">Flight Info</string>
-    <string name="intentDefaultMessage">Test from Android Intent</string>
+    <string name="default_message">The flights you have chosen are:</string>
 
 </resources>

@@ -25,14 +25,14 @@ public class SecondFragment extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
 
         ArrayList<Flight> flights =  FlightController.getInstance().getFlights();
-
         this.adapter
-                = new ArrayAdapter<Flight>(getActivity(), android.R.layout.simple_list_item_1, flights);
+                = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, flights);
 
         setListAdapter(this.adapter);
-
-
         super.onActivityCreated(savedInstanceState);
+
+
+
     }
 
     public void refreshList()
