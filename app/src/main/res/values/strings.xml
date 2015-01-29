@@ -29,9 +29,14 @@
     </string-array>
 
     <string name="title_activity_sender">SenderActivity</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="intentEmail">brian.coveney@mycit.ie</string>
+    <string-array name="intent_email">
+        <item>brian.coveney@mycit.ie</item>
+        <item>bricoveney@yahoo.co.uk</item>
+    </string-array>
+
     <string name="intentSubject">Flight Info</string>
     <string name="default_message">The flights you have chosen are:</string>
+    <string name="emailMessage1">The flights you have booked, on our new Android app, are:</string>
+    <string name="emailMessage2">\n\nWe hope you enjoy flying with us!</string>
 
 </resources>
