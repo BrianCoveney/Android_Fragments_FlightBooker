@@ -9,7 +9,9 @@ import android.widget.TextView;
 import com.example.brian.android_fragments_lt4.R;
 import com.example.brian.android_fragments_lt4.model.Flight;
 
-import java.io.Serializable;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by Brian on 13/01/2015.
@@ -18,18 +20,33 @@ public class FlightViewActivity extends Activity {
 
     private Flight theFlight;
     private Button sendEmail;
+    private Button fileBtn;
+    private TextView fileTv;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //call on the layout file to populate this activity
         setContentView(R.layout.activity_flightview);
 
+
+        //Button to display text from file in directory res/raw
+        fileBtn = (Button)findViewById(R.id.fileButton);
+        fileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //Read from file into a text view
+                fileTv = (TextView)findViewById(R.id.fileOriginsTv);
+                fileTv.setText(readText());
+            }
+        });
+
+        //Get users flight selection and place into a text view
         theFlight = (Flight)getIntent().getSerializableExtra("selectedFlight");
         TextView textView = (TextView)findViewById(R.id.flightDisplayField);
         textView.setText(theFlight.toString());
 
+        //Email functionality added
         sendEmail = (Button)findViewById(R.id.emailButton);
         sendEmail.setOnClickListener(new View.OnClickListener() {
 
@@ -59,5 +76,24 @@ public class FlightViewActivity extends Activity {
 
             }
         });
+    }
+    //Function to read text from a file
+    public String readText(){
+
+        InputStream inputStream = getResources().openRawResource(R.raw.flight_list);
+        ByteArrayOutputStream byteArrayOutputStream =new ByteArrayOutputStream();
+
+        int i;
+        try{
+            i = inputStream.read();
+            while(i != -1){
+                byteArrayOutputStream.write(i);
+                i = inputStream.read();
+            }
+            inputStream.close();
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+        return byteArrayOutputStream.toString();
     }
 }
