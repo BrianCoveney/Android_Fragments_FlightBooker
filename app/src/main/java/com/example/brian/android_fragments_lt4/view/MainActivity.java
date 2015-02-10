@@ -3,13 +3,14 @@ package com.example.brian.android_fragments_lt4.view;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.brian.android_fragments_lt4.R;
 
 
-public class MainActivity extends Activity implements FirstFragment.FlightSearcher  {
+public class MainActivity extends FragmentActivity implements FirstFragment.FlightSearcher  {
 
 
     @Override

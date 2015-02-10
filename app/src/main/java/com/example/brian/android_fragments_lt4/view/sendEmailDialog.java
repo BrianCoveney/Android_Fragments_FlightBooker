@@ -13,10 +13,10 @@ import com.example.brian.android_fragments_lt4.R;
 /**
  * Created by Brian on 08/02/2015.
  */
-public class SendEmailDialog extends DialogFragment {
+public class sendEmailDialog extends DialogFragment {
 
-    static SendEmailDialog newInstance() {
-        return new SendEmailDialog();
+    static sendEmailDialog newInstance() {
+        return new sendEmailDialog();
     }
 
     /* The activity that creates an instance of this dialog fragment must
@@ -49,27 +49,28 @@ public class SendEmailDialog extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-
-        // Instantiate an AlertDialog.Builder with its constructor
+        // Build the dialog and set up the button click handlers
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-
-        //Chain together various setter methods to set the dialog characteristics
         builder.setMessage(R.string.dialog_send_email)
-                .setPositiveButton(R.string.sendEmail, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.send, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        //Response to positive button click goes here
-                        mListener.onDialogPositiveClick(SendEmailDialog.this);
-
+                        // Send the positive button event back to the host activity
+                        mListener.onDialogPositiveClick(sendEmailDialog.this);
                     }
                 })
                 .setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-                        mListener.onDialogNegativeClick(SendEmailDialog.this);
-
+                        // Send the negative button event back to the host activity
+                        mListener.onDialogNegativeClick(sendEmailDialog.this);
                     }
                 });
-
-        // Create the AlertDialog object and return it.
         return builder.create();
     }
+
+    public void onDialogPositiveClick(DialogFragment dialog){
+
+
+    }
+
+
 }

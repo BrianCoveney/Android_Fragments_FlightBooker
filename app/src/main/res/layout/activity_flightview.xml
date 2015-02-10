@@ -10,34 +10,60 @@
         android:layout_height="wrap_content"
         android:text="New Text"
         android:id="@+id/flightDisplayField"
+        style="@style/style1"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignEnd="@+id/emailButton" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sendEmail"
         android:id="@+id/emailButton"
-        android:layout_below="@+id/flightDisplayField"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:padding="5dp"
+        android:background="@drawable/mybutton"
+        android:layout_below="@+id/flightsChosen"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="42dp" />
+        android:layout_marginTop="39dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Show File"
+        android:text="@string/show_file"
         android:id="@+id/fileButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="0dp"
+        style="?android:attr/buttonStyleSmall"
+        android:padding="5dp"
+        android:background="@drawable/mybutton"
         android:layout_below="@+id/emailButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="73dp" />
+        android:layout_alignEnd="@+id/flightDisplayField"
+        android:layout_marginTop="46dp" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fileOriginsTv"
         android:textSize="18dp"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/flightDisplayField" />
+        android:layout_alignParentEnd="true"
+        android:layout_toEndOf="@+id/flightsChosen"
+        android:layout_alignParentBottom="true"
+        android:background="#58857e"
+        android:autoText="false"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/flights_chosen"
+        android:id="@+id/flightsChosen"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textSize="16dp"
+        android:layout_alignBottom="@+id/flightDisplayField"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="28dp" />
 
 
 </RelativeLayout>
