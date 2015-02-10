@@ -19,7 +19,7 @@ import java.io.InputStream;
 /**
  * Created by Brian on 13/01/2015.
  */
-public class FlightViewActivity extends FragmentActivity implements sendEmailDialog.SendEmailDialogListener {
+public class FlightViewActivity extends FragmentActivity  {
 
     private Flight theFlight;
     private Button sendEmail;
@@ -61,7 +61,10 @@ public class FlightViewActivity extends FragmentActivity implements sendEmailDia
             public void onClick(View v) {
 
                 // Create an instance of the dialog fragment and show it
-                DialogFragment dialog = new sendEmailDialog();
+                DialogFragment dialog = new SendEmailDialog();
+                Bundle b = new Bundle();
+                b.putSerializable("flightObj", theFlight);
+                dialog.setArguments(b);
                 dialog.show(getFragmentManager(), "my_email");
 
             }
@@ -69,52 +72,7 @@ public class FlightViewActivity extends FragmentActivity implements sendEmailDia
         });
     }
 
-    // The dialog fragment receives a reference to this Activity through the
-    // Fragment.onAttach() callback, which it uses to call the following methods
-    // defined by the NoticeDialogFragment.NoticeDialogListener interface
-    @Override
-    public void onDialogPositiveClick(DialogFragment dialog) {
-        // User touched the dialog's positive button
 
-        /***
-         On first run this button shows the dialog, then when button is
-         pressed again it launches the email
-         */
-        sendEmail = (Button) findViewById(R.id.emailButton);
-//        sendEmail.setText("Working!!");  TEST
-
-        sendEmail.setOnClickListener(new View.OnClickListener() {
-
-
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/plain");
-
-                intent.putExtra(Intent.EXTRA_EMAIL, getResources().getStringArray(R.array.intent_email));
-                intent.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.intentSubject));
-
-                // Concatenating 'message', to be placed in Intent.EXTRA_TEXT
-                // Pass Serializable Flight object, as an extra to the Email Intent
-                String message = "";
-                message += getString(R.string.emailMessage1);
-                message += "\n\n" + theFlight.toString();
-                message += getString(R.string.emailMessage2);
-
-                intent.putExtra(Intent.EXTRA_TEXT, message);
-
-                if (intent.resolveActivity(getPackageManager()) != null) {
-                    startActivity(intent);
-                }
-            }
-        });
-    }
-
-    @Override
-    public void onDialogNegativeClick(DialogFragment dialog) {
-        // User touched the dialog's negative button
-        // Exit
-    }
 
 
     //Function to read text from a file
