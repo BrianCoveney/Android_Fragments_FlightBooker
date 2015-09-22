@@ -2,11 +2,13 @@ package com.example.brian.android_fragments_lt4.view;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 
 import com.example.brian.android_fragments_lt4.R;
@@ -40,6 +42,7 @@ public class FirstFragment extends Fragment {
             return inflater.inflate(R.layout.fragment_first, container, false);
     }
 
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         setUpListeners();
@@ -66,9 +69,7 @@ public class FirstFragment extends Fragment {
             }
         });
 
-
     }
-
 
 
 }

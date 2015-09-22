@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Android_Fragments_Lt4</string>
+    <string name="app_name">Flight Booker</string>
     <string name="action_settings">Settings</string>
     <string name="quoteButton">FIND FLIGHTS</string>
     <string name="from">From:</string>
@@ -44,6 +44,10 @@
     <string name="cancel">CANCEL</string>
     <string name="flights_chosen">Flights Chosen:</string>
     <string name="show_file">SHOW FILE</string>
+    <string name="hide_file">HIDE FILE</string>
+    <string name="toggle_btn">SHOW/HIDE</string>
+    <string name="radioBtn1">Round Trip</string>
+    <string name="radioBtn2">One Way</string>
 
 
 </resources>

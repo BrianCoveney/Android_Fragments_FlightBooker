@@ -7,7 +7,9 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.brian.android_fragments_lt4.R;
 import com.example.brian.android_fragments_lt4.model.Flight;
@@ -24,7 +26,9 @@ public class FlightViewActivity extends FragmentActivity  {
     private Flight theFlight;
     private Button sendEmail;
     private Button fileBtn;
+    private Button hideFileBtn;
     private TextView fileTv;
+    private ToggleButton toggle;
 
 
 
@@ -33,7 +37,9 @@ public class FlightViewActivity extends FragmentActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flightview);
 
-        //Button to display text from file in directory res/raw
+
+
+        //Display the file
         fileBtn = (Button) findViewById(R.id.fileButton);
         fileBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,8 +47,37 @@ public class FlightViewActivity extends FragmentActivity  {
                 //Read from file into a text view
                 fileTv = (TextView) findViewById(R.id.fileOriginsTv);
                 fileTv.setText(readText());
+                fileTv.setVisibility(View.VISIBLE);
             }
         });
+
+        //Hide the file
+        hideFileBtn = (Button) findViewById(R.id.hideFileButton);
+        hideFileBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                fileTv = (TextView) findViewById(R.id.fileOriginsTv);
+                fileTv.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        //Toggle Show / Hide
+        ToggleButton toggle = (ToggleButton) findViewById(R.id.toggleShowHide);
+        toggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (isChecked) {
+                            fileTv = (TextView) findViewById(R.id.fileOriginsTv);
+                            fileTv.setText(readText());
+                            fileTv.setVisibility(View.VISIBLE);
+
+                } else {
+                            fileTv = (TextView) findViewById(R.id.fileOriginsTv);
+                            fileTv.setVisibility(View.INVISIBLE);
+                        }
+            }
+        });
+
+
 
         //Get users flight selection and place into a text view
         theFlight = (Flight) getIntent().getSerializableExtra("selectedFlight");
@@ -71,8 +106,6 @@ public class FlightViewActivity extends FragmentActivity  {
 
         });
     }
-
-
 
 
     //Function to read text from a file

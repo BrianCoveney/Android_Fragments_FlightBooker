@@ -2,12 +2,14 @@
 <resources>
     <style name="style1">
         <item name="android:textColor">#fffffeec</item>
-        <item name="android:textSize">30sp</item>
     </style>
     <style name="style2">
         <item name="android:background">#028482</item>
     </style>
     <style name="style3">
         <item name="android:textColor">#ff1d0433</item>
+
     </style>
 </resources>
+
+

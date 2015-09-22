@@ -30,10 +30,8 @@ public class SecondFragment extends ListFragment {
 
         setListAdapter(this.adapter);
         super.onActivityCreated(savedInstanceState);
-
-
-
     }
+
 
     public void refreshList()
     {
@@ -53,8 +51,5 @@ public class SecondFragment extends ListFragment {
         //put our flight object into the bundle
         i.putExtra("selectedFlight", selectedFlight);
         startActivity(i);
-
-
-
     }
 }

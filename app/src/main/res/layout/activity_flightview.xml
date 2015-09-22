@@ -38,9 +38,10 @@
         style="?android:attr/buttonStyleSmall"
         android:padding="5dp"
         android:background="@drawable/mybutton"
+        android:layout_marginTop="48dp"
         android:layout_below="@+id/emailButton"
-        android:layout_alignEnd="@+id/flightDisplayField"
-        android:layout_marginTop="46dp" />
+        android:layout_toStartOf="@+id/flightDisplayField"
+        android:layout_alignEnd="@+id/flightsChosen" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -64,6 +65,41 @@
         android:layout_alignBottom="@+id/flightDisplayField"
         android:layout_alignParentStart="true"
         android:layout_marginStart="28dp" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hide_file"
+        android:id="@+id/hideFileButton"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="0dp"
+        android:padding="5dp"
+        android:background="@drawable/mybutton"
+        android:layout_alignBottom="@+id/fileButton"
+        android:layout_alignEnd="@+id/emailButton"
+        android:layout_toEndOf="@+id/fileButton"
+        android:layout_alignTop="@+id/fileButton" />
+
+    <ToggleButton
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/toggle_btn"
+        android:id="@+id/toggleShowHide"
+        android:layout_below="@+id/hideFileButton"
+        android:layout_marginTop="47dp"
+        android:layout_alignEnd="@+id/hideFileButton"
+        android:layout_alignStart="@+id/fileButton"
+        android:background="@drawable/mybutton"
+        android:textOn="HIDE"
+        android:textOff="SHOW"
+        />
+
+
+
+
+
 
 
 </RelativeLayout>

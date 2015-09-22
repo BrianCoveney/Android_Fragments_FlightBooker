@@ -2,15 +2,23 @@ package com.example.brian.android_fragments_lt4.view;
 
 import android.app.Activity;
 import android.app.FragmentManager;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.CompoundButton;
+import android.widget.RadioButton;
+import android.widget.Toast;
 
 import com.example.brian.android_fragments_lt4.R;
 
 
 public class MainActivity extends FragmentActivity implements FirstFragment.FlightSearcher  {
+
+
+    private RadioButton radBtn1;
+    private RadioButton radBtn2;
 
 
     @Override
@@ -25,11 +33,33 @@ public class MainActivity extends FragmentActivity implements FirstFragment.Flig
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        radBtn1 = (RadioButton) findViewById(R.id.radioButton1);
+        radBtn1.setOnCheckedChangeListener(btnOnChangeListener);
+        radBtn2 = (RadioButton) findViewById(R.id.radioButton2);
+        radBtn2.setOnCheckedChangeListener(btnOnChangeListener);
     }
+
+
+    //Changing RadioButton text
+    private CompoundButton.OnCheckedChangeListener btnOnChangeListener =
+            new CompoundButton.OnCheckedChangeListener(){
+                public void onCheckedChanged(CompoundButton buttonView,
+                                             boolean isChecked){
+                    if(isChecked){
+                        buttonView.setTypeface(null, Typeface.BOLD_ITALIC);
+
+                    }else{
+                        buttonView.setTypeface(null, Typeface.NORMAL);
+                    }
+                }
+            };
+
+
 
 
     @Override
