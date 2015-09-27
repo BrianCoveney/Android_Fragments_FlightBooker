@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+    <!--http://stackoverflow.com/questions/6909896/hex-colors-in-android-are-some-times-8-digits-how
+    See first reply > Colour Documentation -->
+<resources>
+
+    <color name ="deep_red">#DC143C</color>
+
+</resources>
