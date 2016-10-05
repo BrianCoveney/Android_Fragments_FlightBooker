@@ -29,8 +29,11 @@ public class FlightController {
     }
 
     public void addFlight(String origin, String destination){
-        Flight f = new Flight(origin, destination);
-        this.flightList.add(f);
+//        Flight f = new Flight(origin, destination);
+
+        // replacing Constructor call, with a call to the Factory Method
+        Flight flight = Flight.createFlight(origin, destination);
+        this.flightList.add(flight);
     }
 
     public ArrayList<Flight> getFlights(){

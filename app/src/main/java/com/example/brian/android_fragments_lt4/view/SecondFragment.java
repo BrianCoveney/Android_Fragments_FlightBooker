@@ -24,7 +24,9 @@ public class SecondFragment extends ListFragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
 
+        // get the flights from the model
         ArrayList<Flight> flights =  FlightController.getInstance().getFlights();
+
         this.adapter
                 = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, flights);
 

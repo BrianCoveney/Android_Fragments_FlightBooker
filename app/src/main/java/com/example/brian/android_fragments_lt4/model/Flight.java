@@ -12,9 +12,16 @@ public class Flight implements Serializable {
     private String destination;
 
 
-    public Flight(String origin, String destination) {
+    private Flight(String origin, String destination) {
         this.origin = origin;
         this.destination = destination;
+    }
+
+
+    // replacing (previous) public Constructor above, with a Factory Method
+    public static Flight createFlight(String origin, String destination)
+    {
+        return new Flight(origin, destination);
     }
 
     public String getDestination() {
